@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: microservice-hystrix-turbine2
+#management:
+#  port: 8087
+server:
+  port: 8089
+eureka:
+  client:
+    serviceUrl: 
+      defaultZone: http://user:123456@localhost:8761/eureka
+  instanse:
+    prefer-id-address: true
+#    metadata-map: 
+#      management.port: 8087 #如果实例的元数据包含management.port，它将代替的/ hystrix.stream端点端口值。
+# turbine监控的服务可以多个
+turbine:
+  aggregator:
+    clusterConfig: MICROSERVICE-CONSUMER-RIBBON-HYSTRIX2
+  appConfig: microservice-consumer-ribbon-hystrix2
+#  instanceUrlSuffix: # 设置微服务的访问路劲：增加项目名称
+#    MICROSERVICE-CONSUMER-RIBBON-HYSTRIX2: ribbon/hystrix.stream
+logging:
+  level:
+    root: DEBUG
+    com.netflix.turbine.monitor: DEBUG

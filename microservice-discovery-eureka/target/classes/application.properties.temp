@@ -1,0 +1,10 @@
+server.port=7900
+spring.application.name=microservice-provider-user
+eureka.client.serviceUrl.defaultZone=http://user:123456@localhost:8761/eureka/
+eureka.instanse.prefer-id-address=true
+security.basic.enabled=ture
+security.user.name=user
+security.user.password=123456
+
+#eureka.instance.statusPageUrlPath=${management.context-path}/info
+#eureka.instance.healthCheckUrlPath=${management.context-path}/health

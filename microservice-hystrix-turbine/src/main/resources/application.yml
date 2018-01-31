@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: microservice-hystrix-turbine
+server:
+  port: 8088
+eureka:
+  client:
+    serviceUrl: 
+      defaultZone: http://user:123456@localhost:8761/eureka
+  instanse:
+    prefer-id-address: true
+# turbine监控的服务可以多个
+#turbine:
+#  aggregator:
+#    clusterConfig: MICROSERVICE-CONSUMER-RIBBON-HYSTRIX
+#  appConfig: microservice-consumer-ribbon-hystrix
+turbine:
+  aggregator:
+    clusterConfig: default
+  appConfig: microservice-consumer-ribbon-hystrix,microservice-consumer-feign-hystrix,microservice-consumer-ribbon-hystrix-dashboard
+  clusterNameExpression: new String("default")
+# 1. clusterNameExpression指定集群名称，默认表达式appName；此时：turbine.aggregator.clusterConfig需要配置想要监控的应用名称
+# 2. 当clusterNameExpression: default时，turbine.aggregator.clusterConfig可以不写，因为默认就是default
+# 3. 当clusterNameExpression: metadata['cluster']时，假设想要监控的应用配置了eureka.instance.metadata-map.cluster: ABC，
+#    则需要配置，同时turbine.aggregator.clusterConfig: ABC

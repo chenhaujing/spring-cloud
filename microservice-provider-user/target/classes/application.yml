@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: microservice-provider-user
+server:
+  port: 7900
+eureka:
+  client:
+    serviceUrl: 
+      defaultZone: http://user:123456@localhost:8761/eureka  #http://peer1:8761/eureka 
+  instanse:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port} 
+    #prefer-id-address: true
+    #instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+    metadata-map:
+      cluster: MAIN   # 修改Eureka元数据，不影响客户端行为
+      zone: hankin
+    lease-renewal-interval-in-seconds: 5
+    appname: USER-SERVICE-TEST # 最原始的application.name，覆盖application.name
+    hostname: user

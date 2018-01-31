@@ -1,0 +1,40 @@
+---
+server:
+  port: 8761
+spring:
+  profiles: peer1
+  application:
+    name: microservice-discovery-eureka-ha-peer1
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    serviceUrl:
+      defaultZone: http://peer2:8762/eureka/
+---
+server:
+  port: 8762
+spring:
+  profiles: peer2
+  application:
+    name: microservice-discovery-eureka-ha-peer2
+eureka:
+  instance:
+    hostname: peer2
+  client: 
+    service-url: 
+      defaultZone: http://peer1:8761/eureka/
+---
+# 可以多配制几个节点：然后相互注册 实现高可用性
+#server:
+#  port: 8763
+#spring:
+#  profiles: peer3
+#  application:
+#    name: microservice-discovery-eureka-ha-peer3
+#eureka:
+#  instance:
+#    hostname: peer3
+#  client: 
+#    service-url: 
+#      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/

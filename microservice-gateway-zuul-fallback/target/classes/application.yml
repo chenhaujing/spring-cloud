@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: microservice-gateway-zuul
+server:
+  port: 9020
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://user:123456@localhost:8761/eureka
+  instanse:
+    prefer-id-address: true
+zuul:
+  ignoredServices: 'microservice-consumer-ribbon-hystrix' # 排除不需要反向代理的微服务
+  routes:
+    microservice-provider-user: /user/**

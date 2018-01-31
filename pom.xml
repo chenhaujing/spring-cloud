@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.chj.cloud</groupId>
+	<artifactId>microservice-spring-cloud</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+  
+	<modules>
+		<module>microservice-consumer-movie</module>
+		<module>microservice-provider-user</module>
+		<module>microservice-discovery-eureka</module>
+		<module>microservice-discovery-eureka-ha</module>
+		<module>microservice-consumer-ribbon</module>
+		<module>microservice-consumer-ribbon-hystrix</module>
+		<module>microservice-consumer-ribbon-hystrix2</module>
+		<module>microservice-consumer-ribbon-hystrix-dashboard</module>
+		<module>microservice-consumer-ribbon-hystrix-propagation</module>
+		<module>microservice-consumer-ribbon-properties</module>
+		<module>microservice-consumer-ribbon-without-eureka</module>
+		<module>microservice-consumer-feign</module>
+		<module>microservice-consumer-feign-config</module>
+		<module>microservice-consumer-feign-config-hystrix</module>
+		<module>microservice-consumer-feign-hystrix</module>
+		<module>microservice-hystrix-turbine</module>
+		<module>microservice-hystrix-turbine2</module>
+		<module>microservice-gateway-zuul</module>
+		<module>microservice-gateway-zuul-fallback</module>
+		<module>microservice-gateway-zuul-filter</module>
+		<module>microservice-file-upload</module>
+	</modules>
+  
+  	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+	
+	<parent>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>1.5.9.RELEASE</version>
+	</parent>
+	<dependencyManagement>
+	    <dependencies>
+	        <dependency>
+	            <groupId>org.springframework.cloud</groupId>
+	            <artifactId>spring-cloud-dependencies</artifactId>
+	            <version>Edgware.SR1</version>
+	            <type>pom</type>
+	            <scope>import</scope>
+	        </dependency>
+	    </dependencies>
+	</dependencyManagement>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	
+	
+</project>

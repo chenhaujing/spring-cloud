@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: microservice-consumer-feign-config
+server:
+  port: 7020
+  
+eureka:
+  client:
+    serviceUrl: 
+      defaultZone: http://user:123456@localhost:8761/eureka
+    
+  instanse:
+    prefer-id-address: true
+
+logging: 
+  level: 
+    com.chj.cloud.feign.UserFeignClientConfig: DEBUG
+    
+# 设置请求超时异常的方法：
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
+# hystrix.command.default.execution.timeout.enabled: false
+# feign.hystrix.enabled: false ## 禁用feign的hystrix

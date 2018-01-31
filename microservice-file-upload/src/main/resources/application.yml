@@ -1,0 +1,18 @@
+server:
+  port: 9010
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://user:123456@localhost:8761/eureka
+  instanse:
+    prefer-id-address: true
+spring:
+  application:
+    name: microservice-gateway-zuul
+  http: 
+    multipart:
+      max-file-size: 200Mb
+      max-request-size: 250Mb
+#zuul:
+#  routes:
+#    customers: /customers/**

@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: microservice-gateway-zuul
+server:
+  port: 9010
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://user:123456@localhost:8761/eureka
+  instanse:
+    prefer-id-address: true
+# 通过zuul给代理的问微服务添加上下文路劲：例如：localhost：7900/api/microservice-provider-user/1001
+# 方式一：全局控制: 访问路劲：http://localhost:9010/user/microservice-provider-user/1001
+zuul: 
+  prefix: /user
+  stripPrefix: false
+# 方式二：局部使用：针对microservice-provider-user微服务
+#zuul: 
+#  routes:
+#    microservice-provider-user: 
+#      path: /user/**
+#      stripPrefix: false
+# 过滤一些不需要访问的路径
+#zuul:
+#  ignoredPatterns: /**/admin/**
+#  routes:
+#    microservice-provider-user: /user/**

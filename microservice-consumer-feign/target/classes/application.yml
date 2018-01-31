@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: microservice-consumer-feign
+server:
+  port: 7010
+  
+eureka:
+  client:
+    serviceUrl: 
+      defaultZone: http://user:123456@localhost:8761/eureka
+    
+  instanse:
+    prefer-id-address: true
+   
